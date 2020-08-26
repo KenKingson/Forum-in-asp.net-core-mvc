@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Forum.Models
 {
-	public class MobileContext : DbContext
+	public class Context : DbContext
 	{
-		public DbSet<Phone> Phones { get; set; }
-		public DbSet<Order> Orders { get; set; }
-
-		public MobileContext(DbContextOptions<MobileContext> options) : base(options)
+		public DbSet<Message> Messages { get; set; }
+		public DbSet<User> Users { get; set; }
+		public Context(DbContextOptions<Context> options) : base(options)
 		{
 			Database.EnsureCreated();
 		}

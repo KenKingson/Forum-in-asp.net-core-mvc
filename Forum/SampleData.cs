@@ -8,30 +8,16 @@ namespace Forum
 {
 	public static class SampleData
 	{
-		public static void Initialize(MobileContext context)
+		public static void Initialize(Context context)
 		{
-			if (!context.Phones.Any())
+			if (!context.Messages.Any())
 			{
-                context.Phones.AddRange(
-                   new Phone
-                   {
-                       Name = "iPhone X",
-                       Company = "Apple",
-                       Price = 600
-                   },
-                   new Phone
-                   {
-                       Name = "Samsung Galaxy Edge",
-                       Company = "Samsung",
-                       Price = 550
-                   },
-                   new Phone
-                   {
-                       Name = "Pixel 3",
-                       Company = "Google",
-                       Price = 500
-                   }
-               );
+				context.Messages.AddRange(
+				   new Message
+				   {
+					   Text = "Hello world"
+				   }
+			   );
                 context.SaveChanges();
             }
 		}

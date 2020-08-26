@@ -8,14 +8,13 @@ namespace Forum.Models
 {
 	public class Message
 	{
-		private Guid userId;
-		private string text;
-		private DateTime creatingDate;
-		public Message(Guid userId, string text)
+		public int Id { get; set; }
+		public string UserId { get; set; }
+		public string Text { get; set; }
+		public DateTime CreatingDate { get; set; }
+		public Message()
 		{
-			this.userId = userId;
-			this.text = text;
-			creatingDate = DateTime.Now;
+			CreatingDate = DateTime.Now;
 		}
 	}
 }

@@ -10,19 +10,27 @@ namespace Forum.Controllers
 {
 	public class HomeController : Controller
 	{
-		MobileContext db;
-		public HomeController(MobileContext context)
+		Context db;
+		public HomeController(Context context)
 		{
 			db = context;
 		}
 		public IActionResult Index()
 		{
-			return View(db.Phones.ToList());
+			return View(db.Messages.ToList());
 		}
 
-		public IActionResult Orders()
+		//public IActionResult Orders()
+		//{
+		//	return View(db.Orders.ToList());
+		//}
+
+		[HttpPost]
+		public string Index(Message message)
 		{
-			return View(db.Orders.ToList());
+			db.Messages.Add(message);
+			db.SaveChanges();
+			return null;
 		}
 
 		[HttpGet]
@@ -30,7 +38,6 @@ namespace Forum.Controllers
 		{
 			if (id == null)
 				RedirectToAction("Index");
-
 			ViewBag.PhoneId = id;
 			return View();
 		}
@@ -38,7 +45,7 @@ namespace Forum.Controllers
 		[HttpPost]
 		public string Buy(Order order)
 		{
-			db.Orders.Add(order);
+			//db.Orders.Add(order);
 			db.SaveChanges();
 			return $"Thanks for shoping with us {order.User}!";
 		}

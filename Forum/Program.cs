@@ -21,7 +21,7 @@ namespace Forum
 				var services = scope.ServiceProvider;
 				try
 				{
-					var context = services.GetRequiredService<MobileContext>();
+					var context = services.GetRequiredService<Context>();
 					SampleData.Initialize(context);
 				}
 				catch (Exception ex)

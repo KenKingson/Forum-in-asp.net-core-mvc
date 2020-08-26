@@ -1,5 +1,4 @@
-﻿@model IEnumerable<Forum2.Models.Phone>
-
+﻿@model IEnumerable<Forum.Models.Message>
 <!doctype html>
 <html>
 <head>
@@ -7,20 +6,23 @@
 </head>
 <body>
 	<table>
-		<tr>
-			<td>Model</td>
-			<td>Price</td>
-			<td>Company</td>
-		</tr>
-		@foreach (var phone in Model)
+		@foreach (var mes in Model)
 		{
 			<tr>
-				<td>@phone.Name</td>
-				<td>@phone.Price</td>
-				<td>@phone.Company</td>
-				<td><a href="~/Home/Buy/@phone.Id">Купить</a></td>
+				<td>@mes.Id</td>
+				<td>@mes.Text</td>
+				<td>@mes.CreatingDate</td>
 			</tr>
 		}
 	</table>
+	<form method="post">
+		<input type="hidden" value="@ViewBag.MessageId" name="MessageId" />
+		<input type="text" name="text">
+		<button type="submit">Отправить</button>
+	</form>
+
+
+	@*<td><a href="~/Home/Buy/@phone.Id">Купить</a></td>*@
+
 </body>
 </html>

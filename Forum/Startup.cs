@@ -21,7 +21,7 @@ namespace Forum
         public void ConfigureServices(IServiceCollection services)
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<MobileContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<Context>(options => options.UseSqlServer(connection));
 
             services.AddMvc();
         }
