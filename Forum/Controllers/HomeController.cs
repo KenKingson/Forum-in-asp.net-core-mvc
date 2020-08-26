@@ -10,7 +10,7 @@ namespace Forum.Controllers
 {
 	public class HomeController : Controller
 	{
-		Context db;
+		readonly Context db;
 		public HomeController(Context context)
 		{
 			db = context;
@@ -19,11 +19,6 @@ namespace Forum.Controllers
 		{
 			return View(db.Messages.ToList());
 		}
-
-		//public IActionResult Orders()
-		//{
-		//	return View(db.Orders.ToList());
-		//}
 
 		[HttpPost]
 		public string Index(Message message)
