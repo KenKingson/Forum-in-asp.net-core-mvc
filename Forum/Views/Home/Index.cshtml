@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Forum2.Models.Phone>
+
+<!doctype html>
+<html>
+<head>
+	<title>Hello world!</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>Model</td>
+			<td>Price</td>
+			<td>Company</td>
+		</tr>
+		@foreach (var phone in Model)
+		{
+			<tr>
+				<td>@phone.Name</td>
+				<td>@phone.Price</td>
+				<td>@phone.Company</td>
+				<td><a href="~/Home/Buy/@phone.Id">Купить</a></td>
+			</tr>
+		}
+	</table>
+</body>
+</html>
