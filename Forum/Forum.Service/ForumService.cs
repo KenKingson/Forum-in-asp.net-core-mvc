@@ -18,7 +18,8 @@ namespace Forum.Service
 
 		public Task Create(Data.Models.Forum forum)
 		{
-			return new Task(_context.Forums.Add(forum));
+			throw new NotImplementedException();
+			//return new Task(_context.Forums.Add(forum));
 		}
 
 		public Task Delete(int forumId)
